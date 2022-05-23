@@ -5,15 +5,17 @@
 #define MAX 50
 #define citire(m) scanf("%d",&m)
 #define afisare(m) printf(" %d ",m)
+#include<time.h>
+
  
-/*Se d? o matrice de dimensiunea M x N, generat? aleatoriu. Se cere s? se calculeze: 
-a) Suma elementelor aflate pe diagonala principal?, respectiv pe diagonala secundar? 
-b) Minimul ?i maximul elementelor aflate sub diagonala principal?, respectiv sub diagonala secundar?.*/
+/*Se da o matrice de dimensiunea M x N, generata aleatoriu. Se cere sa se calculeze: 
+a) Suma elementelor aflate pe diagonala principala, respectiv pe diagonala secundara 
+b) Minimul si maximul elementelor aflate sub diagonala principala, respectiv sub diagonala secundara.*/
 
 void MatriceCaractere(int v[][10], int r,int c) {
 
 	int i, j;
-	for (i = 0; i < r; i++)
+	/*for (i = 0; i < r; i++)
 		for (j = 0; j < c; j++)
 		{
 			printf("a[%d][%d]=", i, j);
@@ -21,8 +23,17 @@ void MatriceCaractere(int v[][10], int r,int c) {
 			
 		}
 
+*/
+	srand(time(0));
+	for (i = 0; i < r; i++) {
+		for (j = 0; j < c; j++) {
 
-
+			v[i][j] = rand() % 100;
+			scanf(" %d ", &v[i][j]);
+		}
+		printf("\n");
+	}
+	
 }
 void AfisareCaractere(int v[][10], int r, int c) {
 
@@ -30,7 +41,7 @@ void AfisareCaractere(int v[][10], int r, int c) {
 	for (i = 0; i < r; i++) {
 		printf("\n");
 		for (j = 0; j < c; j++)
-			printf("  %d ", v[i][j]);
+			printf("  %d ", &v[i][j]);
 	}
 
 
@@ -40,18 +51,49 @@ void AfisareCaractere(int v[][10], int r, int c) {
 void SumaDiagPrinc(int v[][10], int r, int c ) {
 
 	int i, j;
-	int suma = 0;
+	int suma = 0, suma1 = 0;
+
+	if (r == c) {
+		for (i = 0; i < r; i++)
+			for (j = 0; j < c; j++) {
+
+				if (i == j) {
+					suma += v[i][j];
+
+				}
+				if ((i + j) == (r - 1)) {
+					suma1 += v[i][j];
+				}
+
+			}
+		printf("Suma de pe diagonla principala este egala cu %d \n", suma);
+		printf("Suma de pe diagonla secundara este egala cu %d \n", suma1);
+	}
+	else
+	{
+		printf("Nu se poate calcula suma diagonalelor matricei deoarece aceasta nu este patratica \n");
+	}
+	
+}
+
+void identificareMaxMin(int v[][10], int r, int c) {
+	int i, j;
+	int max = v[0][0], min = v[0][0];
 	for (i = 0; i < r; i++)
 		for (j = 0; j < c; j++) {
 
-			if (i == j) {
-				suma += v[i][j];
-				
+			if (v[i][j]> max) {
+				max = v[i][j];
+
+			}
+			if (v[i][j]< min) {
+				min= v[i][j];
 			}
 
-
 		}
-	printf("Suma de pe diagonla principala este egala cu %d", suma);
+	printf("Maximul este  %d \n", max);
+	printf("Minimul este %d \n", min);
+
 }
 int main() {
 
@@ -66,12 +108,12 @@ int main() {
 
 	while (1) {
 
-		printf("\n 1.Citire  \n");
+		printf("\n1.Citire  \n");
 		printf("2.Afisare \n");
 		printf("3. Suma elementelor aflate pe diagonala principala, respectiv pe diagonala secundara\n");
 		printf("4. Minimul si maximul elementelor aflate sub diagonala principala, respectiv sub diagonala secundara\n");
 		printf("0. Iesire\n");
-		printf("Alegeti o optiune\n");
+		printf("\nAlegeti o optiune\n");
 		scanf("%d", &opt);
 
 		switch (opt)
@@ -82,22 +124,28 @@ int main() {
 		break;
 		case 2:
 			if (citit == 0)
-				printf("Cititi matricea intai.\n");
+				printf("\nCititi matricea intai.\n");
 			else
 				AfisareCaractere(b, r,c);
 			break;
 		case 3:
 			if (citit == 0)
-				printf("Cititi matricea intai.\n");
+				printf("\nCititi matricea intai.\n");
 			else
-				SumaDiagPrinc(b[10][10], r, c);
+				SumaDiagPrinc(b, r, c);
 
+			break;
+		case 4:
+			if (citit == 0)
+				printf("\nCititi matricea intai.\n");
+			else
+				identificareMaxMin(b, r, c);
 			break;
 		case 0:
 			exit(0);
 			break;
 
-		default: printf("Alegeti o optiune\n");
+		default: printf("\nAlegeti o optiune\n");
 			break;
 		}
 	}
