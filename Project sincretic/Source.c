@@ -1,37 +1,106 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#define MAX 50
+#define citire(m) scanf("%d",&m)
+#define afisare(m) printf(" %d ",m)
  
+/*Se d? o matrice de dimensiunea M x N, generat? aleatoriu. Se cere s? se calculeze: 
+a) Suma elementelor aflate pe diagonala principal?, respectiv pe diagonala secundar? 
+b) Minimul ?i maximul elementelor aflate sub diagonala principal?, respectiv sub diagonala secundar?.*/
 
+void MatriceCaractere(int v[][10], int r,int c) {
 
-	void max_per_row(double *result,
-		double matrix[][3],
-		const int xmax,
-		const int ymax)
-	{
-		int x = 0, y = 0;
-
-		for (y = 0; y < ymax; y++)
-			result[y] = y;
-		for (y = 0; y < ymax; y++)
+	int i, j;
+	for (i = 0; i < r; i++)
+		for (j = 0; j < c; j++)
 		{
-			for (x = 0; x < xmax; x++)
-			{
-				if (matrix[y][x] > result[y])
-					result[y] = matrix[y][x];
+			printf("a[%d][%d]=", i, j);
+			scanf(" %d", &v[i][j]);
+			
+		}
+
+
+
+}
+void AfisareCaractere(int v[][10], int r, int c) {
+
+	int i, j;
+	for (i = 0; i < r; i++) {
+		printf("\n");
+		for (j = 0; j < c; j++)
+			printf("  %d ", v[i][j]);
+	}
+
+
+}
+
+
+void SumaDiagPrinc(int v[][10], int r, int c ) {
+
+	int i, j;
+	int suma = 0;
+	for (i = 0; i < r; i++)
+		for (j = 0; j < c; j++) {
+
+			if (i == j) {
+				suma += v[i][j];
+				
 			}
+
+
+		}
+	printf("Suma de pe diagonla principala este egala cu %d", suma);
+}
+int main() {
+
+
+	int  r,c, opt;
+	int citit = 0;
+	char b[10][10];
+
+	printf("Dati numarul de linii si de coloane: \n");
+	citire(r);
+	citire(c);
+
+	while (1) {
+
+		printf("\n 1.Citire  \n");
+		printf("2.Afisare \n");
+		printf("3. Suma elementelor aflate pe diagonala principala, respectiv pe diagonala secundara\n");
+		printf("4. Minimul si maximul elementelor aflate sub diagonala principala, respectiv sub diagonala secundara\n");
+		printf("0. Iesire\n");
+		printf("Alegeti o optiune\n");
+		scanf("%d", &opt);
+
+		switch (opt)
+		{
+		case 1:
+			citit = 1;
+			MatriceCaractere(b, r,c);
+		break;
+		case 2:
+			if (citit == 0)
+				printf("Cititi matricea intai.\n");
+			else
+				AfisareCaractere(b, r,c);
+			break;
+		case 3:
+			if (citit == 0)
+				printf("Cititi matricea intai.\n");
+			else
+				SumaDiagPrinc(b[10][10], r, c);
+
+			break;
+		case 0:
+			exit(0);
+			break;
+
+		default: printf("Alegeti o optiune\n");
+			break;
 		}
 	}
-
-	int main(int argc, char **argv)
-	{
-		double test1[3][3] = { {-10, -20, 0},
-							 {-13, 0,  13},
-							 {-99, 99.99, 100.01} };
-		double result[10] = { 0 };
-		int y = 0;
-		max_per_row(result, test1, 3, 3);
-		for (y = 0; y < 3; y++)
-			printf("max row %d = %f\n", y, result[y]);
-		return 0;
-	}
+	system("pause");
+	return 0;
+}

@@ -1,2 +1,6 @@
 ﻿  Source.c
+c:\users\ale\source\repos\project sincretic\project sincretic\source.c(81): warning C4133: 'function': incompatible types - from 'char [10][10]' to 'int (*)[10]'
+c:\users\ale\source\repos\project sincretic\project sincretic\source.c(87): warning C4133: 'function': incompatible types - from 'char [10][10]' to 'int (*)[10]'
+c:\users\ale\source\repos\project sincretic\project sincretic\source.c(93): warning C4047: 'function': 'int (*)[10]' differs in levels of indirection from 'char'
+c:\users\ale\source\repos\project sincretic\project sincretic\source.c(93): warning C4024: 'SumaDiagPrinc': different types for formal and actual parameter 1
   Project sincretic.vcxproj -> C:\Users\Ale\source\repos\Project sincretic\Debug\Project sincretic.exe
