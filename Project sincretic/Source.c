@@ -88,7 +88,7 @@ int main() {
 
 	int  r,c, opt;
 	int citit = 0;
-	char b[MAX][MAX];
+	int b[MAX][MAX];
 
 	printf("Dati numarul de linii si de coloane: \n");
 	citire(r);

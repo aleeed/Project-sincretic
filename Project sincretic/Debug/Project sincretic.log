@@ -1,7 +1,3 @@
 ﻿  Source.c
 c:\users\ale\source\repos\project sincretic\project sincretic\source.c(19): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\ale\source\repos\project sincretic\project sincretic\source.c(111): warning C4133: 'function': incompatible types - from 'char [50][50]' to 'int (*)[50]'
-c:\users\ale\source\repos\project sincretic\project sincretic\source.c(117): warning C4133: 'function': incompatible types - from 'char [50][50]' to 'int (*)[50]'
-c:\users\ale\source\repos\project sincretic\project sincretic\source.c(123): warning C4133: 'function': incompatible types - from 'char [50][50]' to 'int (*)[50]'
-c:\users\ale\source\repos\project sincretic\project sincretic\source.c(130): warning C4133: 'function': incompatible types - from 'char [50][50]' to 'int (*)[50]'
   Project sincretic.vcxproj -> C:\Users\Ale\source\repos\Project sincretic\Debug\Project sincretic.exe
