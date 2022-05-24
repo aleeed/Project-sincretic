@@ -12,43 +12,33 @@
 a) Suma elementelor aflate pe diagonala principala, respectiv pe diagonala secundara 
 b) Minimul si maximul elementelor aflate sub diagonala principala, respectiv sub diagonala secundara.*/
 
-void MatriceCaractere(int v[][10], int r,int c) {
+void MatriceCaractere(int v[MAX][MAX], int r,int c) {
 
 	int i, j;
-	/*for (i = 0; i < r; i++)
-		for (j = 0; j < c; j++)
-		{
-			printf("a[%d][%d]=", i, j);
-			scanf(" %d", &v[i][j]);
-			
-		}
-
-*/
+	
 	srand(time(0));
 	for (i = 0; i < r; i++) {
 		for (j = 0; j < c; j++) {
 
 			v[i][j] = rand() % 100;
-			scanf(" %d ", &v[i][j]);
+			
 		}
-		printf("\n");
+		//printf("\n");
 	}
 	
 }
-void AfisareCaractere(int v[][10], int r, int c) {
+void AfisareCaractere(int v[MAX][MAX], int r, int c) {
 
 	int i, j;
 	for (i = 0; i < r; i++) {
 		printf("\n");
 		for (j = 0; j < c; j++)
-			printf("  %d ", &v[i][j]);
+			printf("  %d ", v[i][j]);
 	}
-
-
 }
 
 
-void SumaDiagPrinc(int v[][10], int r, int c ) {
+void SumaDiagPrinc(int v[MAX][MAX], int r, int c ) {
 
 	int i, j;
 	int suma = 0, suma1 = 0;
@@ -73,10 +63,9 @@ void SumaDiagPrinc(int v[][10], int r, int c ) {
 	{
 		printf("Nu se poate calcula suma diagonalelor matricei deoarece aceasta nu este patratica \n");
 	}
-	
 }
 
-void identificareMaxMin(int v[][10], int r, int c) {
+void identificareMaxMin(int v[MAX][MAX], int r, int c) {
 	int i, j;
 	int max = v[0][0], min = v[0][0];
 	for (i = 0; i < r; i++)
@@ -89,7 +78,6 @@ void identificareMaxMin(int v[][10], int r, int c) {
 			if (v[i][j]< min) {
 				min= v[i][j];
 			}
-
 		}
 	printf("Maximul este  %d \n", max);
 	printf("Minimul este %d \n", min);
@@ -100,7 +88,7 @@ int main() {
 
 	int  r,c, opt;
 	int citit = 0;
-	char b[10][10];
+	char b[MAX][MAX];
 
 	printf("Dati numarul de linii si de coloane: \n");
 	citire(r);
