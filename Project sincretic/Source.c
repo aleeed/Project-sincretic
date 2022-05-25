@@ -23,19 +23,18 @@ void MatriceCaractere(int v[MAX][MAX], int r,int c) {
 			v[i][j] = rand() % 100;
 			
 		}
-		//printf("\n");
 	}
-	
-}
-void AfisareCaractere(int v[MAX][MAX], int r, int c) {
 
-	int i, j;
 	for (i = 0; i < r; i++) {
 		printf("\n");
 		for (j = 0; j < c; j++)
 			printf("  %d ", v[i][j]);
 	}
+	
 }
+
+
+	
 
 
 void SumaDiagPrinc(int v[MAX][MAX], int r, int c ) {
@@ -96,10 +95,9 @@ int main() {
 
 	while (1) {
 
-		printf("\n1.Citire  \n");
-		printf("2.Afisare \n");
-		printf("3. Suma elementelor aflate pe diagonala principala, respectiv pe diagonala secundara\n");
-		printf("4. Minimul si maximul elementelor aflate sub diagonala principala, respectiv sub diagonala secundara\n");
+		printf("\n1.Citire si Afisare \n");
+		printf("2. Suma elementelor aflate pe diagonala principala, respectiv pe diagonala secundara\n");
+		printf("3. Minimul si maximul elementelor aflate sub diagonala principala, respectiv sub diagonala secundara\n");
 		printf("0. Iesire\n");
 		printf("\nAlegeti o optiune\n");
 		scanf("%d", &opt);
@@ -114,16 +112,10 @@ int main() {
 			if (citit == 0)
 				printf("\nCititi matricea intai.\n");
 			else
-				AfisareCaractere(b, r,c);
-			break;
-		case 3:
-			if (citit == 0)
-				printf("\nCititi matricea intai.\n");
-			else
 				SumaDiagPrinc(b, r, c);
 
 			break;
-		case 4:
+		case 3:
 			if (citit == 0)
 				printf("\nCititi matricea intai.\n");
 			else
